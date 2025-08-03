@@ -1,7 +1,32 @@
 {
 	"name": "@efobi/mailer",
-	"version": "1.0.0",
-	"private": true,
+	"version": "2.0.0",
+	"description": "A TypeScript SDK for Emails",
+	"keywords": [
+		"emails",
+		"sdk",
+		"typescript",
+		"api",
+		"service"
+	],
+	"homepage": "https://github.com/efobi-dev/mail_efobi_dev",
+	"bugs": {
+		"url": "https://github.com/efobi-dev/mail_efobi_dev/issues"
+	},
+	"author": {
+		"name": "Owen Efobi",
+		"email": "owen@efobi.dev",
+		"url": "https://github.com/efobi-dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/efobi-dev/mail_efobi_devgit"
+	},
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",

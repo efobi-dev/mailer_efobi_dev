@@ -1,5 +1,13 @@
 # @efobi/hono-mail-server
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @efobi/mailer@2.0.0
+
 ## 0.0.1
 
 ### Patch Changes
