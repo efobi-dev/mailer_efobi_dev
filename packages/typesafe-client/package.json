@@ -1,0 +1,28 @@
+{
+	"name": "@efobi/mailer",
+	"version": "0.0.0",
+	"private": true,
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"format": "biome check --write",
+		"local-release": "changeset version && changeset publish"
+	},
+	"peerDependencies": {
+		"zod": "latest"
+	},
+	"devDependencies": {
+		"tsup": "latest",
+		"typescript": "latest",
+		"@changesets/cli": "^2.29.5"
+	},
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	}
+}
