@@ -1,4 +1,3 @@
-import { bulkEmailInputSchema, emailInputSchema } from "@efobi/mailer";
 import { RedisStore } from "@hono-rate-limiter/redis";
 import { Redis } from "@upstash/redis";
 import { type Context, Hono } from "hono";
@@ -6,6 +5,7 @@ import { rateLimiter } from "hono-rate-limiter";
 import { createTransport } from "nodemailer";
 import type { z } from "zod";
 import { env } from "./env";
+import { bulkEmailInputSchema, emailInputSchema } from "./zod";
 
 const app = new Hono();
 

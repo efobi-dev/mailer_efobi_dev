@@ -8,8 +8,7 @@
 	"scripts": {
 		"build": "tsc --build apps/mailer/tsconfig.json && tsc --build packages/typesafe-client/tsconfig.json",
 		"dev": "tsx apps/mailer/src/index.ts",
-		"format": "biome check --write",
-		"local-release": "changeset version && changeset publish"
+		"format": "biome check --write"
 	},
 	"dependencies": {
 		"@hono-rate-limiter/redis": "^0.1.4",
