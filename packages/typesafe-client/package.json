@@ -1,6 +1,6 @@
 {
 	"name": "@efobi/mailer",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"private": true,
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
@@ -9,6 +9,7 @@
 		"build": "tsup",
 		"dev": "tsup --watch",
 		"format": "biome check --write",
+		"version:upgrade": "changeset",
 		"local-release": "changeset version && changeset publish"
 	},
 	"peerDependencies": {
