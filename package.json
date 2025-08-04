@@ -1,29 +1,54 @@
 {
-	"name": "@efobi/mail-efobi-dev",
-	"type": "module",
-	"workspaces": [
-		"apps/*",
-		"packages/*"
+	"name": "@efobi/mailer",
+	"version": "3.0.0",
+	"description": "A TypeScript SDK for Emails",
+	"keywords": [
+		"emails",
+		"sdk",
+		"typescript",
+		"api",
+		"service"
 	],
-	"scripts": {
-		"build": "tsc --build apps/mailer/tsconfig.json && tsc --build packages/typesafe-client/tsconfig.json",
-		"dev": "tsx apps/mailer/src/index.ts",
-		"format": "biome check --write"
+	"homepage": "https://github.com/efobi-dev/mail_efobi_dev",
+	"bugs": {
+		"url": "https://github.com/efobi-dev/mail_efobi_dev/issues"
 	},
-	"dependencies": {
-		"@hono-rate-limiter/redis": "^0.1.4",
-		"@t3-oss/env-core": "^0.13.8",
-		"@upstash/redis": "^1.35.3",
-		"hono": "^4.8.12",
-		"hono-rate-limiter": "^0.4.2",
-		"nodemailer": "^7.0.5",
-		"zod": "^4.0.14"
+	"author": {
+		"name": "Owen Efobi",
+		"email": "owen@efobi.dev",
+		"url": "https://github.com/efobi-dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/efobi-dev/mail_efobi_devgit"
+	},
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"format": "biome check --write",
+		"version:upgrade": "changeset",
+		"local-release": "changeset version && changeset publish"
+	},
+	"peerDependencies": {
+		"zod": "latest"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.1.3",
-		"@types/node": "^20.11.17",
-		"@types/nodemailer": "^6.4.17",
-		"tsx": "^4.7.1",
-		"typescript": "^5.8.3"
+		"tsup": "latest",
+		"typescript": "latest",
+		"@changesets/cli": "^2.29.5"
+	},
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
 	}
 }
