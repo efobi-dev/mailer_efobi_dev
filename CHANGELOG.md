@@ -1,5 +1,11 @@
 # @efobi/mailer
 
+## 4.1.0
+
+### Minor Changes
+
+- 5d34226: Updated from tsup to tsc
+
 ## 4.0.0
 
 ### Major Changes

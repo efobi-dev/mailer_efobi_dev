@@ -1,6 +1,6 @@
 {
 	"name": "@efobi/mailer",
-	"version": "4.0.0",
+	"version": "4.1.0",
 	"description": "A TypeScript SDK for Emails",
 	"keywords": [
 		"emails",
@@ -27,28 +27,23 @@
 		"dist"
 	],
 	"license": "MIT",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "tsup",
-		"dev": "tsup --watch",
+		"clean": "rimraf dist",
+		"build": "bun run clean && tsc",
 		"format": "biome check --write",
 		"version:upgrade": "changeset",
 		"local-release": "changeset version && changeset publish"
 	},
 	"peerDependencies": {
-		"zod": "latest"
+		"zod": "^4"
 	},
 	"devDependencies": {
-		"tsup": "latest",
-		"typescript": "latest",
-		"@changesets/cli": "^2.29.5"
-	},
-	"exports": {
-		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js"
-		}
+		"@biomejs/biome": "2.1.2",
+		"@changesets/cli": "^2.29.5",
+		"@types/bun": "latest",
+		"rimraf": "^6.0.1",
+		"typescript": "^5.8.3"
 	}
 }
