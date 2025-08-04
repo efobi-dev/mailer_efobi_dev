@@ -1,6 +1,6 @@
 {
 	"name": "@efobi/mailer",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"description": "A TypeScript SDK for Emails",
 	"keywords": [
 		"emails",
@@ -20,7 +20,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/efobi-dev/mail_efobi_devgit"
+		"url": "git+https://github.com/efobi-dev/mail_efobi_dev.git"
 	},
 	"type": "module",
 	"files": [
