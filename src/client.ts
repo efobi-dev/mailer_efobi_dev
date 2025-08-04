@@ -9,8 +9,8 @@ import type { bulkEmailInputSchema, emailInputSchema } from "./zod";
 export class MailerClient {
 	private baseUrl: string;
 
-	constructor(baseUrl: string) {
-		this.baseUrl = baseUrl;
+	constructor() {
+		this.baseUrl = 'https://mail-server.efobi.dev';
 	}
 
 	private async post<T extends z.ZodTypeAny, U>(
@@ -53,5 +53,4 @@ export class MailerClient {
 	}
 }
 
-export const createMailerClient = (baseUrl: string) =>
-	new MailerClient(baseUrl);
+export const mailerClient = new MailerClient();
