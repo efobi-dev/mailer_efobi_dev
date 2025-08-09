@@ -1,5 +1,11 @@
 # @efobi/mailer
 
+## 5.0.0
+
+### Major Changes
+
+- ff7f2e7: Updated the initialization DX
+
 ## 4.1.0
 
 ### Minor Changes
