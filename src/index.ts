@@ -3,14 +3,17 @@ import type {
 	ErrorResponse,
 	SendBulkEmailSuccessResponse,
 	SendEmailSuccessResponse,
+	SmtpConfig,
 } from "./types";
-import type { bulkEmailInputSchema, emailInputSchema } from "./zod";
+import type { sendBulkEmailInputSchema, sendEmailInputSchema } from "./zod";
 
-export class MailerClient {
+export class Mailer {
 	private baseUrl: string;
+	private config: SmtpConfig;
 
-	constructor() {
+	constructor(config: SmtpConfig) {
 		this.baseUrl = "https://mail-server.efobi.dev";
+		this.config = config;
 	}
 
 	private async post<T extends z.ZodTypeAny, U>(
@@ -22,7 +25,7 @@ export class MailerClient {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(data),
+			body: JSON.stringify({ ...(data as object), smtpConfig: this.config }),
 		});
 
 		const result = await response.json();
@@ -38,19 +41,17 @@ export class MailerClient {
 		return result as U;
 	}
 
-	async sendEmail(data: z.infer<typeof emailInputSchema>) {
-		return this.post<typeof emailInputSchema, SendEmailSuccessResponse>(
+	async send(data: z.infer<typeof sendEmailInputSchema>) {
+		return this.post<typeof sendEmailInputSchema, SendEmailSuccessResponse>(
 			"/email",
 			data,
 		);
 	}
 
-	async sendBulkEmail(data: z.infer<typeof bulkEmailInputSchema>) {
-		return this.post<typeof bulkEmailInputSchema, SendBulkEmailSuccessResponse>(
-			"/bulk-email",
-			data,
-		);
+	async bulk(data: z.infer<typeof sendBulkEmailInputSchema>) {
+		return this.post<
+			typeof sendBulkEmailInputSchema,
+			SendBulkEmailSuccessResponse
+		>("/bulk-email", data);
 	}
 }
-
-export const mailerClient = new MailerClient();

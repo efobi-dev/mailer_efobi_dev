@@ -1,3 +1,8 @@
+import type z from "zod";
+import type { smtpConfigSchema } from "./zod";
+
+export type SmtpConfig = z.infer<typeof smtpConfigSchema>;
+
 export type SendEmailSuccessResponse = {
 	message: string;
 	messageId: string;
